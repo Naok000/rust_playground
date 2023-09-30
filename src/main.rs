@@ -106,12 +106,12 @@ fn main() {
     // Binary
     let a: u8 = 0b_1010_1010;
     let b: u8 = 0b_0101_1010;
-    println!("a's value is {}",a);
+    println!("a's value is {}", a);
     // println!("b's value is {}",b);
 
-    println!("a in binary {:08b}",a);
+    println!("a in binary {:08b}", a);
     // println!("b in binary {:08b}",b);
-    
+
     // Logic Gates
     // println!("AND {:08b}", a & b);
     // println!("OR {:08b}", a | b);
@@ -131,7 +131,12 @@ fn main() {
     let big_endian = n.to_be_bytes();
     let little_endian = n.to_le_bytes();
 
-    println!("n in big endian: {:02X}{:02X}", big_endian[0],big_endian[1]);
-    println!("n in little endian: {:02X}{:02X}", little_endian[0],little_endian[1]);
-
+    println!(
+        "n in big endian: {:02X}{:02X}",
+        big_endian[0], big_endian[1]
+    );
+    println!(
+        "n in little endian: {:02X}{:02X}",
+        little_endian[0], little_endian[1]
+    );
 }
