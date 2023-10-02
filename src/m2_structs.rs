@@ -39,6 +39,10 @@ mod test {
             active: true,
             sign_in_count: 1
         };
+        
+        change_username(&mut user_1,"somenewusername");
+
+        dbg!(user_1);
 
         let mut user_2: User = User {
             username: String::from("someusername2"),
@@ -47,8 +51,10 @@ mod test {
             sign_in_count: 0
         };
 
-        change_username(&mut user_1,"somenewusername");
+        user_2.increment_signin_count();
 
-        dbg!(user_1);
+        user_2.change_email("anotheremail.email.com");
+        
+        dbg!(user_2);
     }
 }
