@@ -16,7 +16,7 @@ impl User {
         self.email = String::from(new_email)
     }
 
-    fn isActive(&mut self){
+    fn is_active(&mut self){
         self.active = !self.active
     }
 }
