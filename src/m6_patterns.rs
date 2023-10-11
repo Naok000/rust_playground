@@ -19,7 +19,18 @@ mod test {
     }
 
     #[test]
-    fn test_match_option() {
-        
+    fn tests_match_option() {
+        let some_num: Option<i32> = Some(10);
+        let prob_none: Option<i32> = None;
+
+        let res = match some_num {
+            Some(i) => i,
+            None => {
+                panic!("There was a problem");
+            }
+        };
+
+        println!("{:?}",some_num);
+        println!("{}",res);
     }
 }
