@@ -1,34 +1,31 @@
-#[derive(Debug)]
-enum Message {
-    Quit,
-    ChangeColour(i32,i32,i32),
-    Move {x: i32, y: i32},
-    Write(String)
-}
-
-fn process_message(msg: Message) {
-    match msg {
-        Message::Quit => {
-            println!("I quit!");
-        },
-        Message::ChangeColour(red, green, blue) => {
-            println!("Red {}, Green {}, Blue {}", red, green, blue);
-        },
-        Message::Move { x, y: new_name } => {
-            println!("X is {}, Y as new_name is {}", x, new_name);
-        },
-        Message::Write(text) => {
-            println!("{}",text);
-        }
-    }
-}
-
-
-
-
 #[cfg(test)]
 mod test {
-    use super::*;
+    #[derive(Debug)]
+    #[allow(dead_code)]
+    enum Message {
+        Quit,
+        ChangeColour(i32, i32, i32),
+        Move { x: i32, y: i32 },
+        Write(String),
+    }
+
+    #[allow(dead_code)]
+    fn process_message(msg: Message) {
+        match msg {
+            Message::Quit => {
+                println!("I quit!");
+            }
+            Message::ChangeColour(red, green, blue) => {
+                println!("Red {}, Green {}, Blue {}", red, green, blue);
+            }
+            Message::Move { x, y: new_name } => {
+                println!("X is {}, Y as new_name is {}", x, new_name);
+            }
+            Message::Write(text) => {
+                println!("{}", text);
+            }
+        }
+    }
 
     #[test]
     fn tests_large_enum() {
@@ -52,7 +49,7 @@ mod test {
             _ => "It was something else!",
         };
 
-        println!("{}",res);
+        println!("{}", res);
     }
 
     #[test]
@@ -60,7 +57,7 @@ mod test {
         let some_num: Option<i32> = Some(10);
 
         let my_int: i32 = if let Some(i) = some_num {
-           i
+            i
         } else {
             panic!("There was a ploblem");
         };
@@ -85,18 +82,18 @@ mod test {
 
         let res = match some_res {
             Ok(val) => val,
-            Err(e) => panic!("{}",e)
+            Err(e) => panic!("{}", e),
         };
 
-        println!("{}",res);
+        println!("{}", res);
 
         let my_int: i32 = if let Ok(r) = some_res {
             r
-         } else {
+        } else {
             panic!("There was a ploblem");
-         };
- 
-         println!("My int: {}", my_int);
+        };
+
+        println!("My int: {}", my_int);
     }
 
     #[test]
@@ -106,24 +103,23 @@ mod test {
             (x, y) if x == y => println!("They match"),
             (x, y) if x + y == 0 => println!("They neutralize"),
             (_, y) if y == 2 => println!("Y is indeed +2"),
-            _ => println!("We are no botherd")
+            _ => println!("We are no botherd"),
         };
     }
 
     #[test]
     fn tests_match_struct() {
-        
         struct Location {
             x: i32,
-            y: i32
+            y: i32,
         }
 
-        let location = Location {x: 0, y: 20};
+        let location = Location { x: 0, y: 20 };
 
         match location {
-            Location {x, y: 0 } => println!("Y is on the aixs"),
-            Location {x: 0, y } => println!("X is on the aixs"),
-            Location {x, y } => println!("X and Y are not on the aixs"),
+            Location { x, y: 0 } => println!("Y is on the aixs"),
+            Location { x: 0, y } => println!("X is on the aixs"),
+            Location { x, y } => println!("X and Y are not on the aixs"),
         };
     }
 }
