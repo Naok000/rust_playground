@@ -43,7 +43,7 @@ mod tests {
     //             "i32" => "You sent an i32 type".to_string(),
     //             _ => "You sent something else".to_string(),
     //         }
-    //     } 
+    //     }
     // }
 
     macro_rules! my_vec {
@@ -61,8 +61,7 @@ mod tests {
 
     #[test]
     fn tests_declarative_macro() {
-
-        let mut x: Vec<i32> = vec!();
+        let mut x: Vec<i32> = vec![];
         let mut y: Vec<i32> = my_vec!(1, 2, 3);
 
         dbg!(y);
